@@ -1,4 +1,6 @@
 import React from 'react';
+
+import HomePage from './pages/home/homePage.page';
 import SignInPage from './pages/signIn_and_signUp/signIn_and_signUp.page';
 
 import {Switch, Route } from 'react-router-dom';
@@ -47,6 +49,7 @@ class App extends React.Component{
     return(
       <div className="App">
         <Switch>
+          <Route exact path = '/' component = {HomePage}/>
           <Route path = '/signin' component = {SignInPage}/>
         </Switch>
       </div>
