@@ -2,11 +2,12 @@ import React from 'react';
 import './placeOrder.css';
 import {BASE_URL} from "../../constants";
 import axios from 'axios'
+import Menu from "../../components/menu/menu.component";
 
 class PlaceOrderPage extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {rName: "", t: null, tblNo: -1, apiResponse: ""};
+        this.state = {rName: "", t: null, tblNo: -1, apiResponse: []};
     }
 
     updateInput = event => {
@@ -18,10 +19,11 @@ class PlaceOrderPage extends React.Component {
         event.preventDefault();
         const url = BASE_URL.concat('/restaurant/').concat(this.state.rName).concat('/menu')
         console.log(url)
-        axios.get(url).then(res => this.setState({apiResponse: JSON.stringify(res.data)}))
+        axios.get(url).then(res => this.setState({apiResponse: res.data}))
     }
 
     render() {
+        console.log(this.state.apiResponse)
         return (
             <div className="placeOrder">
                 <form onSubmit={this.getMenu} className={"form-inline"}>
@@ -38,6 +40,8 @@ class PlaceOrderPage extends React.Component {
                     </div>
                     <input className={"btn btn-light"} type={"submit"} value={"Submit"}/>
                 </form>
+                <Menu menu={this.state.apiResponse}></Menu>
+
                 {/*<p>{this.state.apiResponse}</p>*/}
             </div>
 
