@@ -3,6 +3,7 @@ import React from 'react';
 import Header from './components/header/header.component';
 import HomePage from './pages/home/homePage.page';
 import SignInPage from './pages/signIn_and_signUp/signIn_and_signUp.page';
+import { BASE_URL } from "./constants"
 
 import {Switch, Route, Redirect } from 'react-router-dom';
 
@@ -19,9 +20,16 @@ class App extends React.Component{
     };
   }
 
+  callAPI() {
+    fetch(BASE_URL).then(
+        res => {console.log(res.body)}
+    )
+  }
+
   unsubscribeFromAuth = null;
 
   componentDidMount() {
+    this.callAPI()
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
