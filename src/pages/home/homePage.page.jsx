@@ -6,7 +6,7 @@ class HomePage extends React.Component {
     render() {
         return (
             <div className="HomePage">
-                <h1 style={{color: "orange"}}>Welcome</h1>
+                <h1 style={{color: "orange"}}>Wecome</h1>
                 <CustomButton>Place Order</CustomButton>
                 <CustomButton>Sign Up for Waitlist</CustomButton>
             </div>
