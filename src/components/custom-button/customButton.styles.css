@@ -1,0 +1,17 @@
+.customBtn {
+    background-color: #4CAF50;
+    padding: 10px;
+    color: white;
+    font-size: 40px;
+    border-radius: 4px;
+    margin: 0 auto;
+    display: block;
+  }
+
+.customBtn:hover {background-color: #3e8e41}
+
+.customBtn:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
