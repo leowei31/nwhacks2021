@@ -1,0 +1,34 @@
+.overlay {
+    position: fixed; /* Sit on top of the page content */
+    border-radius: 2.5em;
+    top: 70px;
+    left: calc(calc(100% - 50%)/2);
+    width: 50%;
+    height: 80%;
+    margin: auto;
+    background-color: rgba(255,255,255, 0.85); /* Black background with opacity */
+    z-index: 50; /* Specify a stack order in case you're using a different order for other elements */
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+}
+
+.close {
+    display: inline-block;
+    padding-right: 20px !important;
+}
+
+.menu-header {
+    text-align: left;
+    padding-top: 40px;
+}
+
+.menu-title {
+    display: inline-block;
+    padding-left: 20px;
+}
+
+
+.table td {
+    text-align: left;
+    padding-left: 30px;
+}
