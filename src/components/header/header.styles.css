@@ -1,16 +1,20 @@
 .header {
-    height: 70px;
-    width: 100%;
-    justify-content: space-between;
-    margin-bottom: 25px;
+    background-color: white;
 }
 
 .logo-container {
-    height: 100%;
-    padding: 0;
-    margin: 0;
-
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-top: -6px;
   }
+
+.logo{
+    width: 40px;
+    float: left;
+    margin: auto;
+}
 
 .options {
     width: 50%;
@@ -20,11 +24,11 @@
     justify-content: flex-end;
 }
 
-img{
-    height: 20px;
-}
-
 .options .option {
-    padding: 10px 15px;
-    cursor:pointer;
+    position: relative;
+    left: 500px;
+    color: orange;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
   }
