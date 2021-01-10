@@ -49,6 +49,11 @@ class App extends React.Component{
 
       this.setState({ currentUser: userAuth });
     });
+
+    fetch('http://localhost:5000/menu-c0848/us-central1/app/resturant/test-resturant/menu')
+    .then(response => response.json())
+    .then(data => console.log(data));
+
   }
 
   componentWillUnmount() {
