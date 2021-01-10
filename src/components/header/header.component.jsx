@@ -8,6 +8,7 @@ import './header.styles.css';
 
 import Logo from '../../pics/MenuLogo.png';
 
+
 const Header = ({currentUser}) =>(
     <div className = 'header'>
         <Link className= 'logo-container' to='/'>
@@ -31,6 +32,7 @@ const Header = ({currentUser}) =>(
                 )
             }
             <Link className = 'option' to='/contact'>CONTACT</Link>
+            
         </div>
     </div>
 )

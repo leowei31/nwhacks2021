@@ -11,7 +11,7 @@ class HomePage extends React.Component {
             <div className="HomePage">
                 <h1 style={{color: "orange"}}>Welcome</h1>
                 <img src ={HomePageLogo} className="HomePageLogo" alt= 'HomePageLogo'/>
-                <Link className = 'linkBtn' to = '/resturant'>
+                <Link to = '/placeorder' className = 'linkBtn'>
                     <CustomButton>
                         Place Order
                     </CustomButton>

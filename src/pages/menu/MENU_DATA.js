@@ -6,14 +6,8 @@ const MENU_DATA = [
             {
                 id:1,
                 name:'Coke',
-                imageUrl:'https://cdn.pixabay.com/photo/2014/09/12/18/20/coca-cola-443123_960_720.png',
+                imageUrl:'https://images.costcobusinessdelivery.com/ImageDelivery/imageService?profileId=12028466&itemId=854330&recipeName=680',
                 price:'5'
-            },
-            {
-
-            },
-            {
-
             }
 
         ]

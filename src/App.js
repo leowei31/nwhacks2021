@@ -4,6 +4,7 @@ import Header from './components/header/header.component';
 import HomePage from './pages/home/homePage.page';
 import SignInPage from './pages/signIn_and_signUp/signIn_and_signUp.page';
 import MenuPage from './pages/menu/menu.page';
+import PlaceOrderPage from './pages/placeOrder/placeOrder.page';
 import { BASE_URL } from "./constants"
 
 import {Switch, Route, Redirect } from 'react-router-dom';
@@ -68,6 +69,7 @@ class App extends React.Component{
           <Route exact path = '/' component = {HomePage}/>
           <Route exact path = '/menu' component = {MenuPage}/>
           <Route exact path = '/signin' render={()=> this.state.currentUser? (<Redirect to = '/'/>) : (<SignInPage/>)}/>
+          <Route exact path = '/placeorder' component= {PlaceOrderPage}/>
         </Switch>
       </div>
     )
