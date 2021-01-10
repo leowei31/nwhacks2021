@@ -26,3 +26,5 @@ node_modules/
 .eslintcache
 .eslintrc
 **/.idea/
+debug.log
+**/firebase-debug.log

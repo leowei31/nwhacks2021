@@ -1,0 +1,1 @@
+export const BASE_URL = "http://localhost:5000/menu-c0848/us-central1/app"
