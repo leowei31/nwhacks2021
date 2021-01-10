@@ -16,25 +16,29 @@ class PlaceOrderPage extends React.Component {
 
     getMenu = event => {
         event.preventDefault();
-        const rName = {rName: this.state.rName}
-        const url = BASE_URL.concat('/restaurant/').concat(rName).concat('/menu')
+        const url = BASE_URL.concat('/restaurant/').concat(this.state.rName).concat('/menu')
+        console.log(url)
         axios.get(url).then(res => this.setState({apiResponse: JSON.stringify(res.data)}))
     }
 
     render() {
         return (
             <div className="placeOrder">
-                <form onSubmit={this.getMenu}>
-                    <label htmlFor={"rName"}>Restaurant Name:</label>
+                <form onSubmit={this.getMenu} className={"form-inline"}>
+                    <div className={"form-group row"}>
+                        <label htmlFor="rName" className="sr-only">Restaurant Name</label>
                     <input
                         type='text'
+                        className={"form-control"}
+                        placeholder="Restaurant Name"
                         id={"rName"}
                         name="rName"
                         value={this.state.rName}
                         onChange={this.updateInput} />
-                    <input type={"submit"} value={"Submit"}/>
+                    </div>
+                    <input className={"btn btn-light"} type={"submit"} value={"Submit"}/>
                 </form>
-                <p>{this.state.apiResponse}</p>
+                {/*<p>{this.state.apiResponse}</p>*/}
             </div>
 
         )
