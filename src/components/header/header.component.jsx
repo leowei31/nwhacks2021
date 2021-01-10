@@ -9,31 +9,32 @@ import './header.styles.css';
 import Logo from '../../pics/MenuLogo.png';
 
 
-const Header = ({currentUser}) =>(
-    <div className = 'header'>
-        <Link className= 'logo-container' to='/'>
-            <img className ='logo' src ={Logo} alt= 'Logo'/>
-        </Link>
-        <div className= 'options'>
-        
-            {
-                currentUser ? (
-                    <div className = 'option'>Hello {currentUser.displayName}</div>
-                ):(
-                    <div></div>
-                )
-            }
+const Header = ({currentUser}) => (
+    <div className='navbar navbar-expand-lg navbar-light'>
+        <a className="navbar-brand" href="http://localhost:3000/">Dine In </a>
+        <ul className="navbar-nav mr-auto">
+            <li className='nav-item'>
 
-            {
-                currentUser ? (
-                <div className = 'option' onClick = {()=> auth.signOut()}>SIGN OUT</div>
-                ):(
-                <Link className = 'option' to ='/signin'>SIGN IN</Link>
-                )
-            }
-            <Link className = 'option' to='/contact'>CONTACT</Link>
-            
-        </div>
+                {
+                    currentUser ? (
+                        <div className='nav-link'>Hello {currentUser.displayName}</div>
+                    ) : (
+                        <div></div>
+                    )
+                }
+
+                {
+                    currentUser ? (
+                        <div className='nav-link' onClick={() => auth.signOut()}>SIGN OUT</div>
+                    ) : (
+                        <Link className='nav-link' to='/signin'>SIGN IN</Link>
+                    )
+                }
+            </li>
+            <li className='nav-item'>
+                <Link className='nav-link' to='/contact'>CONTACT</Link>
+            </li>
+        </ul>
     </div>
 )
 

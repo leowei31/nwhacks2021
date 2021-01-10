@@ -2,8 +2,9 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 import './homePage.css';
+
 import CustomButton from '../../components/custom-button/customButton.component';
-import HomePageLogo from '../../pics/MenuLogoHomePage.png';
+import HomePageLogo from '../../pics/MenuLogo.png';
 
 class HomePage extends React.Component {
     render() {
@@ -11,13 +12,14 @@ class HomePage extends React.Component {
             <div className="HomePage">
                 <h1 style={{color: "orange"}}>Welcome</h1>
                 <img src ={HomePageLogo} className="HomePageLogo" alt= 'HomePageLogo'/>
-                <Link to = '/placeorder' className = 'linkBtn'>
-                    <CustomButton>
+                <br></br>
+                <Link to = '/placeorder' >
+                    <CustomButton className = 'btn btn-outline-warning btn-lg'>
                         Place Order
                     </CustomButton>
                 </Link>
-                
-                <CustomButton>Sign Up for Waitlist</CustomButton>
+
+                <CustomButton className = 'btn btn-outline-warning btn-lg'>Sign Up for Waitlist</CustomButton>
             </div>
             
         )
