@@ -42,20 +42,17 @@ class DatabaseHandler {
     }
 
     async getWaitlist(rName) {
-        console.log("getting waitlist")
-        const snapshot = await this.db.collection('waitlist').where("name", "==", rName).get();
-        var waitlist = []
-        // Print the ID and contents of each document
-        snapshot.forEach(doc => {
-            let entry = {
-                email: doc.data().email,
-                timestamp: doc.data().timestamp,
-                partySize: doc.data().partySize
-            };
-            waitlist.push(entry)
+        var restaurantRef = this.db.collection("restaurant");
+        const waitlistSnapshot = await restaurantRef.where('name', "==", rName).get();
+        if (waitlistSnapshot.empty) {
+            return [];
+        }
+        var item;
+        waitlistSnapshot.forEach(doc => {
+            item = doc.data();
         });
-
-        return waitList;
+        const res = await item.waitlist.get();
+        return res.data();
     }
 }
 module.exports = {
