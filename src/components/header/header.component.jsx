@@ -6,7 +6,6 @@ import {auth} from '../../firebase/firebase.utils';
 
 import './header.styles.css';
 
-import Logo from '../../pics/MenuLogo.png';
 
 
 const Header = ({currentUser}) => (
