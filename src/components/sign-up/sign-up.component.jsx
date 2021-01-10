@@ -6,8 +6,8 @@ import FormInput from '../form-input/form-input.component';
 
 import './sign-up.styles.scss';
 
-class SignUp extends React.Component{
-    constructor(){
+class SignUp extends React.Component {
+    constructor() {
         super();
         this.state = {
             displayName: '',
@@ -17,18 +17,18 @@ class SignUp extends React.Component{
         }
     }
 
-    handleSubmit = async event =>{
+    handleSubmit = async event => {
         event.preventDefault();
         const {displayName, email, password, confirmPassword} = this.state;
 
-        if(password !== confirmPassword){
+        if (password !== confirmPassword) {
             alert('Passwords do not match');
             return;
         }
-        try{
+        try {
             const {user} = await auth.createUserWithEmailAndPassword(email, password);
 
-            createUserProfileDocument(user,{displayName});
+            createUserProfileDocument(user, {displayName});
             this.state = {
                 displayName: '',
                 email: '',
@@ -36,58 +36,61 @@ class SignUp extends React.Component{
                 confirmPassword: ''
             }
 
-        }catch(error){
+        } catch (error) {
             console.error(error)
         }
 
     };
-    
-    handleChange = event =>{
-        const{name, value} = event.target;
 
-        this.setState({[name]:value});
+    handleChange = event => {
+        const {name, value} = event.target;
+
+        this.setState({[name]: value});
     }
 
-    render(){
+    render() {
         const {displayName, email, password, confirmPassword} = this.state;
-        return(
-            <div>
-                <h2>I do not have an account</h2>
-                <span className = 'sign-up-with'>Sign up with your email and password</span>
-                <form className = 'sign-up-form' onSubmit ={this.handleSubmit}>
+        return (
+            <div className={"sign-up-wrapper"}>
+                <h3>SIGN UP</h3>
+                <form className='sign-up-form' onSubmit={this.handleSubmit}>
                     <FormInput
-                    type = 'text'
-                    name = 'displayName'
-                    value = {displayName}
-                    onChange = {this.handleChange}
-                    label = 'Display Name'
-                    required
+                        className={"form-control"}
+                        type='text'
+                        name='displayName'
+                        value={displayName}
+                        onChange={this.handleChange}
+                        label='Display Name'
+                        required
                     />
                     <FormInput
-                    type = 'email'
-                    name = 'email'
-                    value = {email}
-                    onChange = {this.handleChange}
-                    label = 'Email'
-                    required
+                        className={"form-control"}
+                        type='email'
+                        name='email'
+                        value={email}
+                        onChange={this.handleChange}
+                        label='Email'
+                        required
                     />
                     <FormInput
-                    type = 'password'
-                    name = 'password'
-                    value = {password}
-                    onChange = {this.handleChange}
-                    label = 'Password'
-                    required
+                        className={"form-control"}
+                        type='password'
+                        name='password'
+                        value={password}
+                        onChange={this.handleChange}
+                        label='Password'
+                        required
                     />
                     <FormInput
-                    type = 'password'
-                    name = 'confirmPassword'
-                    value = {confirmPassword}
-                    onChange = {this.handleChange}
-                    label = 'Confirm Password'
-                    required
+                        className={"form-control"}
+                        type='password'
+                        name='confirmPassword'
+                        value={confirmPassword}
+                        onChange={this.handleChange}
+                        label='Confirm Password'
+                        required
                     />
-                    <button className ='btn btn-outline-warning' type = 'submit'>SIGN UP</button>
+                    <button className='btn btn-warning btn-sm' type='submit'>SIGN UP</button>
                 </form>
             </div>
         )

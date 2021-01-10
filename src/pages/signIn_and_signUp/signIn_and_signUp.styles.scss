@@ -1,13 +1,16 @@
 .sign-in{
-    background: rgba(255, 255, 255, 0.5)
-}
-
-.sign-up{
-    background: rgba(255, 255, 255, 0.5)
+    padding-top: 70px;
 }
 
 .sign-in-with{
     color: rgb(15, 14, 14);
     font-weight: bold;
 
+}
+
+.sign-in-wrapper {
+    background: rgba(255, 255, 255, 0.5);
+    width: 80%;
+    margin-top: 20px;
+    margin-left: calc( calc(100% - 80%) / 2 );
 }
