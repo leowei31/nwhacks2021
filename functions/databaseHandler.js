@@ -18,29 +18,36 @@ class DatabaseHandler {
         return snapshot;
     }
 
-    async getMenu() {
-        console.log('getting menu list');
+    async getMenu(rName) {
         var menu = [];
-        const waitlistSnapshot = await this.db.collection('menu').get();
-        waitlistSnapshot.forEach(doc => {
-            menuItem = {
-                item: doc.data().item,
-                price: doc.data().price,
-                isVegetarian: doc.data().isVegetarian
-            }
-            menu.push(menuItem);
-            console.log(menu);
-        });
-        return menu;
+        var restaurantRef = this.db.collection("restaurant")
+        const snapshot = await restaurantRef.where('name', '==', rName).get();
+        if (snapshot.empty) {
+            return menu
+        }
+        let item;
+        snapshot.forEach(doc => {
+            item = doc.data()
+        })
+        if (!item || !item.menu) {
+            return menu
+        }
+        const res = await item.menu.get()
+        let categories = res.data()
+        for (let key in Object.keys(categories)) {
+            let menuItem = {[Object.keys(categories)[key]]: Object.values(categories)[key]}
+            menu.push(menuItem)
+        }
+        return menu
     }
 
-    async getWaitlist() {
+    async getWaitlist(rName) {
         console.log("getting waitlist")
-        const snapshot = await this.db.collection('waitlist').get();
+        const snapshot = await this.db.collection('waitlist').where("name", "==", rName).get();
         var waitlist = []
         // Print the ID and contents of each document
         snapshot.forEach(doc => {
-            entry = {
+            let entry = {
                 email: doc.data().email,
                 timestamp: doc.data().timestamp,
                 partySize: doc.data().partySize
