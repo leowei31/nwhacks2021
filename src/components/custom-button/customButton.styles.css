@@ -1,0 +1,9 @@
+.customBtn {
+    background-color: #4CAF50;
+    padding: 10px;
+    color: white;
+    font-size: 40px;
+    border-radius: 4px;
+    margin: 0 auto;
+    display: block;
+  }
