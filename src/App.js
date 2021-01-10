@@ -4,7 +4,12 @@ import Header from './components/header/header.component';
 import HomePage from './pages/home/homePage.page';
 import SignInPage from './pages/signIn_and_signUp/signIn_and_signUp.page';
 import MenuPage from './pages/menu/menu.page';
+<<<<<<< Updated upstream
 import { BASE_URL } from "./constants"
+=======
+import PlaceOrderPage from './pages/placeOrder/placeOrder.page';
+import WaitlistPage from './pages/waitlist/waitlist.page';
+>>>>>>> Stashed changes
 
 import {Switch, Route, Redirect } from 'react-router-dom';
 
@@ -68,6 +73,11 @@ class App extends React.Component{
           <Route exact path = '/' component = {HomePage}/>
           <Route exact path = '/menu' component = {MenuPage}/>
           <Route exact path = '/signin' render={()=> this.state.currentUser? (<Redirect to = '/'/>) : (<SignInPage/>)}/>
+<<<<<<< Updated upstream
+=======
+          <Route exact path = '/placeorder' component= {PlaceOrderPage}/>
+          <Route exact path = '/waitlist' component= {WaitlistPage}/>
+>>>>>>> Stashed changes
         </Switch>
       </div>
     )

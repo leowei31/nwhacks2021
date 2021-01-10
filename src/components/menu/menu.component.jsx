@@ -14,4 +14,4 @@ const Menu = ({title, items}) => (
   </div>
 )
 
-export default Menu
+export default Menu;

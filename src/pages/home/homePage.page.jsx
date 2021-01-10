@@ -16,8 +16,11 @@ class HomePage extends React.Component {
                         Place Order
                     </CustomButton>
                 </Link>
-                
-                <CustomButton>Sign Up for Waitlist</CustomButton>
+                <Link to = '/waitlist' >
+                <CustomButton className = 'btn btn-outline-warning btn-lg'>
+                    Sign Up for Waitlist
+                </CustomButton>
+                </Link>
             </div>
             
         )
