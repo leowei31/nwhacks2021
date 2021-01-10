@@ -15,12 +15,9 @@ class PlaceOrderPage extends React.Component {
     }
 
     getMenu = event => {
-        console.log("here")
         event.preventDefault();
-        console.log("here")
         const rName = {rName: this.state.rName}
-        const url = BASE_URL.concat('/restaurant/').concat(this.state.rName).concat('/menu')
-        console.log(url)
+        const url = BASE_URL.concat('/restaurant/').concat(rName).concat('/menu')
         axios.get(url).then(res => this.setState({apiResponse: JSON.stringify(res.data)}))
     }
 
