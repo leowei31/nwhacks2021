@@ -15,7 +15,7 @@ class Menu extends React.Component {
                 <div className={"menu-header"}>
                     <h3 className={"menu-title"}> MENU </h3>
                     <button type="button" className="close" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                        <span aria-hidden="true"></span>
                     </button>
                 </div>
                 {this.props.menu.map(category => (
@@ -28,7 +28,7 @@ class Menu extends React.Component {
                         {category[Object.keys(category)[0]].map(menuItem => (
                             <tr>
                                 <td>{menuItem.name}</td>
-                                <td>{menuItem.price}</td>
+                                <td>${(menuItem.price / 100).toFixed(2)}</td>
                             </tr>
                         ))}
                     </table>

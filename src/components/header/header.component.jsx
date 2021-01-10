@@ -10,7 +10,7 @@ import './header.styles.css';
 
 const Header = ({currentUser}) => (
     <div className='navbar navbar-expand-lg navbar-light'>
-        <a className="navbar-brand" href="http://localhost:3000/">Dine In </a>
+        <a className="navbar-brand" href="http://localhost:3000/">DINE </a>
         <ul className="navbar-nav mr-auto">
             <li className='nav-item'>
 
