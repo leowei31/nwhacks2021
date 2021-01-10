@@ -1,0 +1,7 @@
+.form-control {
+    width: 400px !important;
+}
+.form-inline {
+    margin-left: calc(calc(100% - 400px - 120px) / 2);
+    margin-top: 200px;
+}
