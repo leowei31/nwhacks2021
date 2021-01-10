@@ -1,5 +1,9 @@
 h1 {
   font-size: 100px;
-  padding: 100px;
+  padding: 10px;
 }
 
+.HomePageLogo {
+  height: 200px;
+  padding: 10px;
+}
