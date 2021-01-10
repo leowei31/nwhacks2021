@@ -3,6 +3,7 @@ import React from 'react';
 import Header from './components/header/header.component';
 import HomePage from './pages/home/homePage.page';
 import SignInPage from './pages/signIn_and_signUp/signIn_and_signUp.page';
+import MenuPage from './pages/menu/menu.page';
 import { BASE_URL } from "./constants"
 
 import {Switch, Route, Redirect } from 'react-router-dom';
@@ -60,6 +61,7 @@ class App extends React.Component{
         <Header currentUser = {this.state.currentUser}/>
         <Switch>
           <Route exact path = '/' component = {HomePage}/>
+          <Route exact path = '/menu' component = {MenuPage}/>
           <Route exact path = '/signin' render={()=> this.state.currentUser? (<Redirect to = '/'/>) : (<SignInPage/>)}/>
         </Switch>
       </div>
