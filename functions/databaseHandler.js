@@ -58,16 +58,7 @@ class DatabaseHandler {
     }
 
     async registerForWaitlist(rName, email, partySize) {
-        if (typeof partySize != "number") {
-            console.log("partySize is not a number!");
-            return;
-        } else if (partySize <= 0) {
-            console.log("partySize cannot be negative");
-            return;
-        } 
-
         const waitlistRef = this.db.collection("waitlist").doc(rName);
-        console.log(waitlistRef);
         let newEntry = {
             email: email,
             partySize: partySize,
@@ -80,21 +71,13 @@ class DatabaseHandler {
     }
 
     async removeFromWaitlist(rName, email, partySize) {
-        if (typeof partySize != "number") {
-            console.log("partySize is not a number!");
-            return;
-        } else if (partySize <= 0) {
-            console.log("partySize cannot be negative");
-            return;
-        } 
-        const waitlist = getWaitlist(rName);
+        const waitlist = await this.getWaitlist(rName);
         var entryToRemove;
-        for (entry of waitlist) {
-            if (entry.email == email && entry.partySize == partySize) {
+        waitlist.waitlist.forEach((entry) => {
+            if(entry.email == email && entry.partySize == partySize) {
                 entryToRemove = entry;
             }
-            return;
-        }
+        });
         var waitlistRef = this.db.collection("waitlist").doc(rName);
         waitlistRef.update({
             waitlist: firestore.FieldValue.arrayRemove(entryToRemove)
